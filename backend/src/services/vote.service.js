@@ -24,7 +24,7 @@ export async function castVote(targetType, Model, targetId, userId, action) {
         { upsert: true }
       );
     } catch (err) {
-      // Upsert race on the unique index — the row exists now, retry as a plain update.
+      // Upsert race on the unique index: the row exists now, so retry as a plain update.
       if (err.code === 11000) {
         await Vote.updateOne({ userId, targetType, targetId }, { $set: { value: action } });
       } else {
@@ -46,7 +46,7 @@ export async function castVote(targetType, Model, targetId, userId, action) {
   };
 }
 
-/** Decorate lean docs with likeCount / dislikeCount / voteStatus —
+/** Decorate lean docs with likeCount / dislikeCount / voteStatus:
  *  one aggregation for the counts, one indexed find for the user's own votes. */
 export async function attachVotes(targetType, items, userId) {
   if (!items.length) return [];

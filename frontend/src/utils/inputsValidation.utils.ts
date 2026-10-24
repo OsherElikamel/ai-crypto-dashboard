@@ -16,11 +16,11 @@ export const getPasswordStrength = (pw: string): number => {
 };
 
 const STRENGTH_HINTS = [
-  "Too weak — use 8+ chars",
-  "Weak — add numbers & symbols",
-  "Fair — consider more variety",
-  "Good — strong enough",
-  "Great — very strong",
+  "Too weak: use 8+ chars",
+  "Weak: add numbers & symbols",
+  "Fair: consider more variety",
+  "Good: strong enough",
+  "Great: very strong",
 ] as const;
 
 export const strengthHint = (level: number): string => {

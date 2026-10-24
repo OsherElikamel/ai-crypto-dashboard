@@ -172,7 +172,7 @@ export default function useDashboardData() {
         setNews(asArray<NewsItem>(freshRes.data));
         setNewsPage(1);
         showSnackbar(
-          added > 0 ? `${added} new articles fetched` : "No new articles right now — check back later",
+          added > 0 ? `${added} new articles fetched` : "No new articles right now. Check back later",
           added > 0 ? "success" : "info",
         );
       }

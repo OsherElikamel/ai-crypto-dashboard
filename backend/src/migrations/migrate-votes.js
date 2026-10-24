@@ -2,7 +2,7 @@
  * One-time migration: move embedded likedBy/dislikedBy arrays into the
  * dedicated votes collection, then remove the arrays and reconcile indexes.
  *
- * Idempotent — safe to run more than once.
+ * Idempotent: safe to run more than once.
  *
  *   npm run migrate:votes
  */
@@ -63,7 +63,7 @@ async function migrate() {
   for (const { model } of TARGETS) await model.syncIndexes();
   await Vote.syncIndexes();
 
-  console.log(`Done — ${migrated} votes migrated, indexes synced`);
+  console.log(`Done: ${migrated} votes migrated, indexes synced`);
   await mongoose.disconnect();
 }
 

@@ -18,7 +18,7 @@ export async function vote(req, res) {
   if (!Model) return res.status(400).json({ error: "invalid type" });
   if (!action) return res.status(400).json({ error: "missing vote" });
 
-  // castVote throws errors carrying a .status — the global error
+  // castVote throws errors carrying a .status; the global error
   // handler returns those messages as-is and hides real 500 details.
   const result = await castVote(type, Model, id, req.user._id, action);
   return res.json({ ok: true, ...result });

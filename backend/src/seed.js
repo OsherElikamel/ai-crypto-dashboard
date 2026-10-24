@@ -7,7 +7,7 @@ export async function seedIfEmpty() {
   const coinCount = await Coin.countDocuments();
   if (coinCount > 0) return;
 
-  console.log("Empty database detected — seeding coins...");
+  console.log("Empty database detected, seeding coins...");
 
   await Coin.insertMany([
     { symbol: "BTC", name: "Bitcoin", coingeckoId: "bitcoin" },

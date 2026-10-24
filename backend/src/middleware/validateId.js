@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-// Reject malformed ObjectIds up front — otherwise Mongoose throws a
+// Reject malformed ObjectIds up front. Otherwise Mongoose throws a
 // CastError that surfaces as a 500 for what is really bad user input.
 export function validateObjectId(param = "id") {
   return (req, res, next) => {
